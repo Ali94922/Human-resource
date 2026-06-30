@@ -8,17 +8,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'  # تم تغيير هذا من 18 إلى 20
       - name: Install and Build
         run: |
-          # تنظيف بيئة العمل
           rm -rf node_modules package-lock.json
-          
-          # إعادة إنشاء ملف القفل لضمان توافق النسخ
-          npm install --package-lock-only
-          
-          # تثبيت المكتبات (سيتم تثبيت الإصدارات المناسبة للينكس)
-          npm ci
-          
-          # بناء المشروع
+          npm install
           npm run build
