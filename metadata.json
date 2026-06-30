@@ -1,0 +1,6 @@
+{
+  "name": "برنامج Yuanda HR",
+  "description": "برنامج ذكي لمساعدة فرق العمل في تعبئة عقود الموظفين واليومية تلقائياً من خلال الرقم القومي أو تصوير بطاقة الرقم القومي باستخدام الذكاء الاصطناعي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
