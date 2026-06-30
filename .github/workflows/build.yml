@@ -9,8 +9,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Clean Install and Build
+      - name: Install and Build
         run: |
-          rm -rf node_modules package-lock.json
-          npm install
-          npm run build
+          npm install --force
+          npx vite build
