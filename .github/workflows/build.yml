@@ -11,11 +11,11 @@ jobs:
           node-version: '18'
       - name: Install and Build
         run: |
-          # مسح الملفات القديمة التي قد تسبب تعارضاً في البيئة
+          # حذف أي ملفات قديمة تسبب تعارضاً
           rm -rf node_modules package-lock.json
           
-          # تثبيت المكتبات من جديد مع إجبار النظام على إعادة البناء
-          npm install --force
+          # تثبيت المكتبات من جديد في بيئة لينكس
+          npm install
           
-          # تشغيل أمر البناء
-          npm run build
+          # البناء باستخدام أداة vite مباشرة
+          npx vite build
