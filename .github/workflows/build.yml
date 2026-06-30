@@ -9,13 +9,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Clean Install and Build
+      - name: Install and Build
         run: |
-          # حذف أي ملفات قديمة (node_modules/lock) قد تكون رفعتها من ويندوز
+          # تنظيف بيئة العمل
           rm -rf node_modules package-lock.json
           
-          # تثبيت المكتبات مع تجاهل الاعتماديات الاختيارية التي تسبب خطأ الـ native binding
-          npm install --no-optional
+          # إعادة إنشاء ملف القفل لضمان توافق النسخ
+          npm install --package-lock-only
+          
+          # تثبيت المكتبات (سيتم تثبيت الإصدارات المناسبة للينكس)
+          npm ci
           
           # بناء المشروع
           npm run build
