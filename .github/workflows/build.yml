@@ -9,13 +9,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Install and Build
+      - name: Clean Install and Build
         run: |
-          # حذف أي ملفات قديمة تسبب تعارضاً
+          # حذف أي ملفات قديمة (node_modules/lock) قد تكون رفعتها من ويندوز
           rm -rf node_modules package-lock.json
           
-          # تثبيت المكتبات من جديد في بيئة لينكس
-          npm install
+          # تثبيت المكتبات مع تجاهل الاعتماديات الاختيارية التي تسبب خطأ الـ native binding
+          npm install --no-optional
           
-          # البناء باستخدام أداة vite مباشرة
-          npx vite build
+          # بناء المشروع
+          npm run build
