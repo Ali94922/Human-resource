@@ -11,5 +11,11 @@ jobs:
           node-version: '18'
       - name: Install and Build
         run: |
+          # مسح الملفات القديمة التي قد تسبب تعارضاً في البيئة
+          rm -rf node_modules package-lock.json
+          
+          # تثبيت المكتبات من جديد مع إجبار النظام على إعادة البناء
           npm install --force
-          npx vite build
+          
+          # تشغيل أمر البناء
+          npm run build
